@@ -20,6 +20,11 @@ app.factory('authentication', function(){
         localStorage.removeItem(key);
     }
 
+    function isAdmin() {
+        var isAdmin = getUserData().isAdmin;
+        return isAdmin;
+    }
+
     return {
         saveUser: saveUserData,
         getUser: getUserData,
