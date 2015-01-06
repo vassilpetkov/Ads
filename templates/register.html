@@ -1,0 +1,31 @@
+<header>
+    <h1>Ads - Registration</h1>
+</header>
+<div id="wrapper">
+    <div class="row">
+        <div class="col-md-3">
+            <sidebar-guest></sidebar-guest>
+        </div>
+        <div class="col-md-9">
+            <form>
+                <h2>User Registration</h2>
+                <label for="username">Username:</label><br/>
+                <input type="text" id="username" ng-model="user.username"/><br/>
+                <label for="password">Password:</label><br/>
+                <input type="password" id="password" ng-model="user.password"/><br/>
+                <label for="confirmPassword">Confirm password:</label><br/>
+                <input type="password" id="confirmPassword" ng-model="user.confirmPassword"/><br/>
+                <label for="name">Name:</label><br/>
+                <input type="text" id="name" ng-model="user.name"/><br/>
+                <label for="email">Email:</label><br/>
+                <input type="text" id="email" ng-model="user.email"/><br/>
+                <label for="phone">Phone:</label><br/>
+                <input type="number" id="phone" ng-model="user.phone"/><br/>
+                <label for="town">Town:</label><br/>
+                <select id="town" ng-options="town.id as town.name for town in towns" ng-model="selected.townId"></select>
+                <button ng-click="register(user)">Register</button>
+                <a href="#/login">Login here</a>
+            </form>
+        </div>
+    </div>
+</div>
