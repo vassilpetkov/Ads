@@ -1,5 +1,7 @@
-app.controller('Login', ['$scope', 'userData', function($scope, userData){
+app.controller('Login', ['$scope', '$location', 'userData', function($scope, $location, userData){
     $scope.login = function(user) {
-        userData.login(user);
+        userData.login(user).$promise.then(function (data) {
+            $location.path('/');
+        });
     }
 }]);
