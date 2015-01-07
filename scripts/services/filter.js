@@ -6,7 +6,7 @@ app.factory('filter', function() {
     }
 
     function filterByTown(town) {
-        filterParams.townyId = town.id;
+        filterParams.townId = town.id;
     }
 
     function getFilterParams() {

@@ -12,4 +12,8 @@ app.controller('PublishedAds', ['$scope', 'adsData', 'filter', function($scope, 
     $scope.$on('categoryFilter', function(event, category) {
         loadPublishedAds(filter.getFilterParams());
     })
+
+    $scope.$on('townFilter', function(event, town) {
+        loadPublishedAds(filter.getFilterParams());
+    })
 }])
