@@ -1,4 +1,4 @@
-app.controller('PublishedAds', ['$scope', '$log', 'adsData', 'filter', function($scope, $log, adsData, filter) {
+app.controller('PublishedAds', ['$scope', 'adsData', 'filter', function($scope, adsData, filter) {
     $scope.startPage = 1;
     $scope.currentPage = 1;
     $scope.pageSize = 10;

@@ -26,6 +26,7 @@ app.factory('authentication', function(){
     }
 
     function isLoggedIn() {
+        //$scope.username = getUserData().username;
         var isLoggedIn = !!getUserData();
         return isLoggedIn;
     }

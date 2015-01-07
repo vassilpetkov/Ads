@@ -1,5 +1,9 @@
 <header>
     <h1>Ads - Home</h1>
+    <div ng-if="isLoggedIn">
+        <p>{{}}</p>
+        <button ng-click="logout()">Logout</button>
+    </div>
 </header>
 <div id="wrapper">
     <div class="row">
