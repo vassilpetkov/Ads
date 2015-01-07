@@ -4,8 +4,8 @@
 <div id="wrapper">
     <div class="row">
         <div class="col-md-3">
-            <sidebar-guest ng-if="!isLoggedIn"></sidebar-guest>
-            <navigation-user ng-if="isLoggedIn"></navigation-user>
+            <div ng-include="'templates/sidebar-guest.html'" ng-if="!isLoggedIn"></div>
+            <div ng-include="'templates/navigation-user.html'" ng-if="isLoggedIn"></div>
         </div>
         <div class="col-md-6">
             <published-ads></published-ads>

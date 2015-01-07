@@ -17,12 +17,12 @@ app.factory('userData', ['$resource', 'baseServiceUrl', 'authentication',
         return resource;
     }
 
-    //function logoutUser(){
-    //    return $resource(baseServiceUrl + 'user/logout').save(user);
-    //    $resource.$promise.then(function () {
-    //        authentication.removeUser();
-    //    });
-    //}
+    function logoutUser(){
+        return $resource(baseServiceUrl + 'user/logout').save(user);
+        $resource.$promise.then(function () {
+            authentication.removeUser();
+        });
+    }
 
     return {
         register: registerUser,
