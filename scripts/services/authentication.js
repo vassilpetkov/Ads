@@ -3,7 +3,7 @@ app.factory('authentication', function(){
     function saveUserData(data) {
         localStorage.setItem(key, angular.toJson(data));
     }
-    function getUserData(data) {
+    function getUserData() {
         return angular.fromJson(localStorage.getItem(key));
     }
 
@@ -25,10 +25,17 @@ app.factory('authentication', function(){
         return isAdmin;
     }
 
+    function isLoggedIn() {
+        var isLoggedIn = !!getUserData();
+        return isLoggedIn;
+    }
+
     return {
         saveUser: saveUserData,
         getUser: getUserData,
         getHeaders: getHeaders,
-        removeUser: removeUser
+        removeUser: removeUser,
+        isLoggedIn: isLoggedIn,
+        isAdmin: isAdmin
     }
 })

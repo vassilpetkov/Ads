@@ -1,2 +1,3 @@
-app.controller('Home', ['$scope', function($scope){
+app.controller('Home', ['$scope', 'authentication', function($scope, authentication){
+    $scope.isLoggedIn = authentication.isLoggedIn();
 }]);
