@@ -4,4 +4,14 @@
             {{ad.title}}
         </li>
     </ul>
+    <pagination page="startPage"
+        ng-model="currentPage"
+        total-items="adsData.numItems"
+        ng-change="pageChanged()"
+        items-per-page="pageSize"
+        previous-text="‹"
+        next-text="›"
+        first-text="«"
+        last-text="»">
+    </pagination>
 </div>

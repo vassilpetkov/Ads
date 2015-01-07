@@ -1,6 +1,6 @@
 'use strict'
 
-var app = angular.module('adsApp', ['ngRoute', 'ngResource']);
+var app = angular.module('adsApp', ['ngRoute', 'ngResource', 'ui.bootstrap']);
 
 app.constant('baseServiceUrl', 'http://localhost:1337/api/')
 
