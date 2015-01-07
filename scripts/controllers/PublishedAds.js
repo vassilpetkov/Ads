@@ -1,11 +1,11 @@
-app.controller('PublishedAds', ['$scope', 'adsData', 'filter', function($scope, adsData, filter) {
+app.controller('PublishedAds', ['$scope', '$log', 'adsData', 'filter', function($scope, $log, adsData, filter) {
     $scope.startPage = 1;
     $scope.currentPage = 1;
-    $scope.pageSize = 3;
+    $scope.pageSize = 10;
 
-    function loadPublishedAds(filterParams) {
-        filterParams = filterParams || {};
-        adsData.getPublishedAds(filterParams).$promise.then(function(data) {
+    function loadPublishedAds(filter) {
+        filter = filter || {};
+        adsData.getPublishedAds(filter).$promise.then(function(data) {
             $scope.adsData = data;
             $scope.ads = data.ads;
         })
@@ -13,15 +13,21 @@ app.controller('PublishedAds', ['$scope', 'adsData', 'filter', function($scope, 
 
     loadPublishedAds();
 
+    $scope.setPage = function (pageNo) {
+        $scope.currentPage = pageNo;
+    };
+
     $scope.pageChanged = function() {
-        console.log('works');
-    }
+        filter.setPageParams($scope.currentPage, $scope.pageSize);
+        loadPublishedAds(filter.getParams());
+
+    };
 
     $scope.$on('categoryFilter', function(event, category) {
-        loadPublishedAds(filter.getFilterParams());
-    })
+        loadPublishedAds(filter.getParams());
+    });
 
     $scope.$on('townFilter', function(event, town) {
-        loadPublishedAds(filter.getFilterParams());
-    })
-}])
+        loadPublishedAds(filter.getParams());
+    });
+}]);
