@@ -1,9 +1,14 @@
-app.factory('adsData',['$resource', 'baseServiceUrl', function($resource, baseServiceUrl) {
+app.factory('adsData',['$resource', 'baseServiceUrl', 'authentication', function($resource, baseServiceUrl, authentication) {
     var resource = $resource(baseServiceUrl + 'ads:adId', {adId: '@id'}, {
         update: {method: 'PUT'}
     });
 
-    var userResource = $resource(baseServiceUrl + 'user/ads');
+    var userResource = $resource(baseServiceUrl + 'user/ads', {}, {
+        post: {
+            method: "POST",
+            headers: {authorization: authentication.getHeaders().Authorization}
+        }
+    });
 
     function getPublishedAds(params) {
         return resource.get(params);
@@ -18,7 +23,7 @@ app.factory('adsData',['$resource', 'baseServiceUrl', function($resource, baseSe
     }
 
     function addAd(ad) {
-        return userResource.save(ad);
+        return userResource.post(ad);
     }
 
     function deleteAd(AdId) {
@@ -32,4 +37,4 @@ app.factory('adsData',['$resource', 'baseServiceUrl', function($resource, baseSe
         add: addAd,
         delete: deleteAd
     }
-}])
+}]);
