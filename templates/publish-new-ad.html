@@ -1,0 +1,27 @@
+<header>
+    <h1>Ads - Publish New Ad</h1>
+</header>
+<div id="wrapper">
+    <div class="row">
+        <div class="col-md-3">
+            <sidebar-user></sidebar-user>
+        </div>
+        <div class="col-md-9">
+            <form>
+                <h2>Publish New Ad</h2>
+                <label for="title">Title:</label><br/>
+                <input type="text" id="title" ng-model="ad.title"/><br/>
+                <label for="text">Text:</label><br/>
+                <input type="textBox" id="text" ng-model="ad.text"/><br/>
+                <label for="image">Image:</label><br/>
+                <input type="text" id="image" ng-model="ad.image"><br/>
+                <label for="category">Category:</label><br/>
+                <select id="category" ng-options="category.id as category.name for category in categories" ng-model="selected.categoryId"></select><br/>
+                <label for="town">Town:</label><br/>
+                <select id="town" ng-options="town.id as town.name for town in towns" ng-model="selected.townId"></select>
+                <button ng-click="add(ad)">Publish</button>
+                <a href="#/">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>

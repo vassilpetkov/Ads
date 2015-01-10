@@ -3,6 +3,7 @@ app.factory('townsData', ['$resource', 'baseServiceUrl', function($resource, bas
     function getAllTowns() {
         return resource.query();
     }
+
     return {
         getAllTowns: getAllTowns
     }
