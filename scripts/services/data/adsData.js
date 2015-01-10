@@ -7,6 +7,10 @@ app.factory('adsData',['$resource', 'baseServiceUrl', 'authentication', function
         post: {
             method: "POST",
             headers: {authorization: authentication.getHeaders().Authorization}
+        },
+        get: {
+            method: "GET",
+            headers: {authorization: authentication.getHeaders().Authorization}
         }
     });
 
@@ -22,6 +26,10 @@ app.factory('adsData',['$resource', 'baseServiceUrl', 'authentication', function
         return resource.get({id:adId});
     }
 
+    function getUserAds(params) {
+        return userResource.get(params);
+    }
+
     function addAd(ad) {
         return userResource.post(ad);
     }
@@ -32,6 +40,7 @@ app.factory('adsData',['$resource', 'baseServiceUrl', 'authentication', function
 
     return {
         getPublishedAds: getPublishedAds,
+        getUserAds: getUserAds,
         edit: editAd,
         getAdById: getAdById,
         add: addAd,

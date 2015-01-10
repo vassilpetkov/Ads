@@ -7,4 +7,4 @@ app.factory('categoriesData', ['$resource', 'baseServiceUrl', function($resource
     return {
         getCategories: getCategories
     }
-}])
+}]);

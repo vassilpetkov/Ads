@@ -9,6 +9,10 @@ app.factory('filter', function() {
         params.townId = town.id;
     }
 
+    function filterByStatus(status) {
+        params.adStatus = status.id;
+    }
+
     function getParams() {
         return params;
     }
@@ -21,6 +25,7 @@ app.factory('filter', function() {
     return {
         filterByCategory: filterByCategory,
         filterByTown: filterByTown,
+        filterByStatus: filterByStatus,
         getParams: getParams,
         setPageParams: setPageParams
     }

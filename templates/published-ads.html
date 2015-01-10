@@ -1,24 +1,22 @@
 <div id="all-ads">
-    <ul>
-        <div ng-repeat="ad in ads">
-            <div>
-                <h3>{{ad.title}}</h3>
-                <p>{{ad.date | date : 'dd:MMM:yyyy'}}</p>
-            </div>
-            <div ng-if="ad.imageDataUrl">
-                <img ng-src="{{ad.imageDataUrl}}"/>
-            </div>
-            <div ng-if="!ad.imageDataUrl">
-                <img src="images/no-image-available.png"/>
-            </div>
-            <div>
-                <p>{{ad.text}}</p><br/>
-                <p>Name: {{ad.ownerName}}</p>
-                <p>Email: {{ad.ownerEmail}}</p>
-                <p>Tel.: {{ad.ownerPhone}}</p>
-            </div>
+    <div ng-repeat="ad in ads">
+        <div>
+            <h3>{{ad.title}}</h3>
+            <p>{{ad.date | date : 'dd:MMM:yyyy'}}</p>
         </div>
-    </ul>
+        <div ng-if="ad.imageDataUrl">
+            <img ng-src="{{ad.imageDataUrl}}"/>
+        </div>
+        <div ng-if="!ad.imageDataUrl">
+            <img src="images/no-image-available.png"/>
+        </div>
+        <div>
+            <p>{{ad.text}}</p><br/>
+            <p>Name: {{ad.ownerName}}</p>
+            <p>Email: {{ad.ownerEmail}}</p>
+            <p>Tel.: {{ad.ownerPhone}}</p>
+        </div>
+    </div>
     <pagination page="startPage"
         ng-model="currentPage"
         total-items="adsData.numItems"

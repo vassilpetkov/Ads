@@ -5,4 +5,4 @@ app.directive('publishedAds', function(){
         templateUrl: 'templates/published-ads.html',
         replace: true
     }
-})
+});
