@@ -9,6 +9,19 @@ app.factory('userData', ['$resource', 'baseServiceUrl', 'authentication',
         return resource;
     }
 
+    function editUserProfile(user){
+        var resource = $resource(baseServiceUrl + 'user/profile', {}, {
+            update: {
+                method: 'PUT',
+                headers: {authorization: authentication.getHeaders().Authorization}
+            }
+        }).update(user);
+        resource.$promise.then(function (data) {
+            //authentication.saveUser(data);
+        });
+        return resource;
+    }
+
     function loginUser(user){
         var resource = $resource(baseServiceUrl + 'user/login').save(user);
         resource.$promise.then(function (data) {
@@ -26,6 +39,7 @@ app.factory('userData', ['$resource', 'baseServiceUrl', 'authentication',
     return {
         register: registerUser,
         login: loginUser,
+        editProfile: editUserProfile,
         logout: logoutUser
     }
-}])
+}]);

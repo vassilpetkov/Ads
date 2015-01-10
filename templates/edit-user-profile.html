@@ -1,0 +1,38 @@
+<div id="wrapper">
+    <header>
+    <h1>Ads - Edit user profile</h1>
+    </header>
+    <div class="row">
+        <div class="col-md-3">
+            <sidebar-guest></sidebar-guest>
+        </div>
+        <div class="col-md-4">
+            <form>
+                <h2>Edit profile</h2>
+                <label for="name">Name:</label><br/>
+                <input type="text" id="name" ng-model="user.name"/><br/>
+                <label for="email">Email:</label><br/>
+                <input type="text" id="email" ng-model="user.email"/><br/>
+                <label for="phone">Phone:</label><br/>
+                <input type="number" id="phone" ng-model="user.phoneNumber"/><br/>
+                <label for="town">Town:</label><br/>
+                <select id="town" ng-options="town.id as town.name for town in towns" ng-model="selected.townId"></select>
+                <button ng-click="editProfile(user)">Update</button>
+                <a href="#/">Cancel</a>
+            </form>
+        </div>
+        <div class="col-md-4">
+        <form>
+            <h2>User Registration</h2>
+            <label for="oldPassword">Old password:</label><br/>
+            <input type="text" id="oldPassword" ng-model="user.oldPassword"/><br/>
+            <label for="newPassword">Password:</label><br/>
+            <input type="password" id="newPassword" ng-model="user.newPassword"/><br/>
+            <label for="confirmPassword">Confirm password:</label><br/>
+            <input type="password" id="confirmPassword" ng-model="user.confirmPassword"/><br/>
+            <button ng-click="register(user)">Change password</button>
+            <a href="#/">Cancel</a>
+        </form>
+    </div>
+    </div>
+</div>

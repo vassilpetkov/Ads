@@ -17,6 +17,10 @@ app.config(['$routeProvider', function($routeProvider) {
         templateUrl: '/templates/register.html',
         controller: 'Register'
     });
+    $routeProvider.when('/user/profile', {
+        templateUrl: '/templates/edit-user-profile.html',
+        controller: 'EditUserProfile'
+    });
     $routeProvider.when('/user/ads', {
         templateUrl: '/templates/my-ads.html',
         controller: 'UserAds'
