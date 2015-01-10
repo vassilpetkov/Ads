@@ -14,7 +14,10 @@
                 <label for="text">Text:</label><br/>
                 <input type="textBox" id="text" ng-model="ad.text"/><br/>
                 <label for="image">Image:</label><br/>
-                <input type="text" id="image" ng-model="ad.image"><br/>
+                <input type="file" id="image" ng-model="ad.image"/>
+                <input type="text" ng-model="imageUrl">
+                <img ng-src="{{imageUrl}}"><br/>
+                <img ng-bind=ad.image><br/>
                 <label for="category">Category:</label><br/>
                 <select id="category" ng-options="category.id as category.name for category in categories" ng-model="selected.categoryId"></select><br/>
                 <label for="town">Town:</label><br/>
