@@ -22,17 +22,17 @@
             </form>
         </div>
         <div class="col-md-4">
-        <form>
-            <h2>User Registration</h2>
-            <label for="oldPassword">Old password:</label><br/>
-            <input type="text" id="oldPassword" ng-model="user.oldPassword"/><br/>
-            <label for="newPassword">Password:</label><br/>
-            <input type="password" id="newPassword" ng-model="user.newPassword"/><br/>
-            <label for="confirmPassword">Confirm password:</label><br/>
-            <input type="password" id="confirmPassword" ng-model="user.confirmPassword"/><br/>
-            <button ng-click="register(user)">Change password</button>
-            <a href="#/">Cancel</a>
-        </form>
+            <form>
+                <h2>Change Password</h2>
+                <label for="oldPassword">Old password:</label><br/>
+                <input type="password" id="oldPassword" ng-model="user.oldPassword"/><br/>
+                <label for="newPassword">Password:</label><br/>
+                <input type="password" id="newPassword" ng-model="user.newPassword"/><br/>
+                <label for="confirmPassword">Confirm password:</label><br/>
+                <input type="password" id="confirmPassword" ng-model="user.confirmPassword"/><br/>
+                <button ng-click="changePassword(user)">Change password</button>
+                <a href="#/">Cancel</a>
+            </form>
     </div>
     </div>
 </div>

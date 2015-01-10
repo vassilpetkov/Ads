@@ -9,8 +9,8 @@ app.controller('EditUserProfile', ['$scope', '$location', 'townsData', 'userData
         })
     };
 
-    $scope.editPassword = function(user) {
-        userData.register(user).$promise.then(function (data) {
+    $scope.changePassword = function(user) {
+        userData.changePassword(user).$promise.then(function (data) {
             $location.path('/');
         })
     }
