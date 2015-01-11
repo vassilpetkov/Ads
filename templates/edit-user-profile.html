@@ -1,10 +1,11 @@
 <div id="wrapper">
     <header>
-    <h1>Ads - Edit user profile</h1>
+        <h1>Ads - Edit user profile</h1>
+        <button ng-click="logout()">Logout</button>
     </header>
     <div class="row">
         <div class="col-md-3">
-            <sidebar-guest></sidebar-guest>
+            <div ng-include="'templates/navigation-user.html'"></div>
         </div>
         <div class="col-md-4">
             <form>
@@ -33,6 +34,6 @@
                 <button ng-click="changePassword(user)">Change password</button>
                 <a href="#/">Cancel</a>
             </form>
-    </div>
+        </div>
     </div>
 </div>

@@ -18,10 +18,6 @@ app.factory('adsData',['$resource', 'baseServiceUrl', 'authentication', function
         return resource.get(params);
     }
 
-    function editAd(adId, ad) {
-        return resource.update({ id:adId}, ad)
-    }
-
     function getAdById(adId) {
         return resource.get({id:adId});
     }
@@ -34,6 +30,20 @@ app.factory('adsData',['$resource', 'baseServiceUrl', 'authentication', function
         return userResource.post(ad);
     }
 
+    function editAd(adId, ad) {
+        return resource.update({ id:adId}, ad)
+    }
+
+    function deactivateAd(adId) {
+        var resource = $resource(baseServiceUrl + 'user/ads/deactivate/' + adId, {}, {
+            update: {
+                method: 'PUT',
+                headers: {authorization: authentication.getHeaders().Authorization}
+            }
+        });
+        return resource.update(adId);
+    }
+
     function deleteAd(AdId) {
         return resource.delete({ id: adId });
     }
@@ -41,9 +51,10 @@ app.factory('adsData',['$resource', 'baseServiceUrl', 'authentication', function
     return {
         getPublishedAds: getPublishedAds,
         getUserAds: getUserAds,
-        edit: editAd,
         getAdById: getAdById,
         add: addAd,
+        edit: editAd,
+        deactivate: deactivateAd,
         delete: deleteAd
     }
 }]);

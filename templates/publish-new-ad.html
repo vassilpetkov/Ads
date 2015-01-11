@@ -1,10 +1,11 @@
 <header>
     <h1>Ads - Publish New Ad</h1>
+    <button ng-click="logout()">Logout</button>
 </header>
 <div id="wrapper">
     <div class="row">
         <div class="col-md-3">
-            <sidebar-user></sidebar-user>
+            <div ng-include="'templates/navigation-user.html'"></div>
         </div>
         <div class="col-md-9">
             <form>

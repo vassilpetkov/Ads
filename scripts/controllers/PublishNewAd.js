@@ -1,4 +1,9 @@
-app.controller('PublishNewAd', ['$scope', '$location', 'categoriesData', 'townsData', 'adsData', function($scope, $location, categoriesData, townsData, adsData){
+app.controller('PublishNewAd', ['$scope', '$location', 'categoriesData', 'townsData', 'userData', 'adsData', function($scope, $location, categoriesData, townsData, userData, adsData){
+    $scope.logout = function() {
+        userData.logout();
+        $location.path('/');
+    };
+
     townsData.getAllTowns().$promise.then(function (data) {
         $scope.towns = data;
     });

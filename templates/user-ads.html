@@ -1,19 +1,42 @@
 <div id="user-ads">
-    <div ng-repeat="ad in ads">
-        <div>
-            <h3>{{ad.title}}</h3>
-            <p>{{ad.date | date : 'dd:MMM:yyyy'}}</p>
+    <div class="row">
+        <div class="col-md-3">
+            <navigation-user></navigation-user>
         </div>
-        <div ng-if="ad.imageDataUrl">
-            <img ng-src="{{ad.imageDataUrl}}"/>
-        </div>
-        <div ng-if="!ad.imageDataUrl">
-            <img src="images/no-image-available.png"/>
-        </div>
-        <div>
-            <p>{{ad.text}}</p><br/>
-            <p>Catagory: {{ad.categoryName}}</p>
-            <p>Town: {{ad.townName}}</p>
+        <div class="col-md-9">
+            <div ng-repeat="ad in ads">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div>
+                            <h3>{{ad.title}}</h3>
+                            <p>{{ad.date | date : 'dd:MMM:yyyy'}}</p>
+                        </div>
+                        <div ng-if="ad.imageDataUrl">
+                            <img ng-src="{{ad.imageDataUrl}}"/>
+                        </div>
+                        <div ng-if="!ad.imageDataUrl">
+                            <img src="images/no-image-available.png"/>
+                        </div>
+                        <div>
+                            <p>{{ad.text}}</p><br/>
+                            <p>Catagory: {{ad.categoryName}}</p>
+                            <p>Town: {{ad.townName}}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <span>Status</span>
+                        {{ad.status}}
+                        <div ng-if="ad.status != 'Inactive'">
+                            <button ng-click="deactivate(ad.id)">Deactivate</button>
+                        </div>
+                        <div ng-if="ad.status == 'Inactive'">
+                            <button ng-click="edit(ad.id)">Edit</button><br/>
+                            <button ng-click="publish(ad.id)">Publish again</button><br/>
+                            <button ng-click="delete(ad.id)">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <pagination page="startPage"

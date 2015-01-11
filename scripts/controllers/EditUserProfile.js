@@ -1,4 +1,9 @@
 app.controller('EditUserProfile', ['$scope', '$location', 'townsData', 'userData', function($scope, $location, townsData, userData){
+    $scope.logout = function() {
+        userData.logout();
+        $location.path('/');
+    };
+
     townsData.getAllTowns().$promise.then(function (data) {
         $scope.towns = data;
     });

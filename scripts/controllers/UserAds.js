@@ -1,4 +1,4 @@
-app.controller('UserAds', ['$scope', 'adsData', 'filter', function($scope, adsData, filter) {
+app.controller('UserAds', ['$scope', '$route', 'adsData', 'filter', function($scope, $route, adsData, filter) {
     $scope.startPage = 1;
     $scope.currentPage = 1;
     $scope.pageSize = 10;
@@ -12,6 +12,12 @@ app.controller('UserAds', ['$scope', 'adsData', 'filter', function($scope, adsDa
     }
 
     loadUserAds();
+
+    $scope.deactivate = function(adId) {
+        adsData.deactivate(adId).$promise.then(function (data) {
+            $route.reload();
+        })
+    };
 
     $scope.setPage = function (pageNo) {
         $scope.currentPage = pageNo;
