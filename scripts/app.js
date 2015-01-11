@@ -29,6 +29,10 @@ app.config(['$routeProvider', function($routeProvider) {
         templateUrl: '/templates/publish-new-ad.html',
         controller: 'PublishNewAd'
     });
+    $routeProvider.when('/user/ads/edit', {
+        templateUrl: '/templates/edit-ad.html',
+        controller: 'EditAd'
+    });
     $routeProvider.otherwise({
         redirectTo: '/'
     });

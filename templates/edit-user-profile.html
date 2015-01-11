@@ -11,13 +11,13 @@
             <form>
                 <h2>Edit profile</h2>
                 <label for="name">Name:</label><br/>
-                <input type="text" id="name" ng-model="user.name"/><br/>
+                <input type="text" id="name" placeholder="{{user.name}}" ng-model="user.name"/><br/>
                 <label for="email">Email:</label><br/>
-                <input type="text" id="email" ng-model="user.email"/><br/>
+                <input type="text" id="email" placeholder="{{user.email}}" ng-model="user.email"/><br/>
                 <label for="phone">Phone:</label><br/>
-                <input type="number" id="phone" ng-model="user.phoneNumber"/><br/>
+                <input type="number" id="phone" placeholder="{{user.phoneNumber}}" ng-model="user.phoneNumber"/><br/>
                 <label for="town">Town:</label><br/>
-                <select id="town" ng-options="town.id as town.name for town in towns" ng-model="selected.townId"></select>
+                <select id="town" ng-options="town.id as town.name for town in towns" placeholder="{{user.townId}}" ng-model="selected.townId"></select>
                 <button ng-click="editProfile(user)">Update</button>
                 <a href="#/">Cancel</a>
             </form>

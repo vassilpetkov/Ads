@@ -1,4 +1,4 @@
-app.controller('UserAds', ['$scope', '$route', 'adsData', 'filter', function($scope, $route, adsData, filter) {
+app.controller('UserAds', ['$scope', '$route', '$location', 'adsData', 'filter', function($scope, $route, $location, adsData, filter) {
     $scope.startPage = 1;
     $scope.currentPage = 1;
     $scope.pageSize = 10;
@@ -23,6 +23,11 @@ app.controller('UserAds', ['$scope', '$route', 'adsData', 'filter', function($sc
         adsData.publish(adId).$promise.then(function (data) {
             $route.reload();
         })
+    };
+
+    $scope.edit = function(adId) {
+        adsData.setEditAdId(adId);
+        $location.path('/user/ads/edit');
     };
 
     $scope.deleteAd = function(adId) {
