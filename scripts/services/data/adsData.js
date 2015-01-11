@@ -44,8 +44,24 @@ app.factory('adsData',['$resource', 'baseServiceUrl', 'authentication', function
         return resource.update(adId);
     }
 
-    function deleteAd(AdId) {
-        return resource.delete({ id: adId });
+    function publishAdAgain(adId) {
+        var resource = $resource(baseServiceUrl + 'user/ads/publishagain/' + adId, {}, {
+            update: {
+                method: 'PUT',
+                headers: {authorization: authentication.getHeaders().Authorization}
+            }
+        });
+        return resource.update(adId);
+    }
+
+    function deleteAd(adId) {
+        var resource = $resource(baseServiceUrl + 'user/ads/' + adId, {}, {
+            delete: {
+                method: 'DELETE',
+                headers: {authorization: authentication.getHeaders().Authorization}
+            }
+        });
+        return resource.delete();
     }
 
     return {
@@ -55,6 +71,7 @@ app.factory('adsData',['$resource', 'baseServiceUrl', 'authentication', function
         add: addAd,
         edit: editAd,
         deactivate: deactivateAd,
-        delete: deleteAd
+        publish: publishAdAgain,
+        deleteAd: deleteAd
     }
 }]);

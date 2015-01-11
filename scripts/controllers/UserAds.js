@@ -19,6 +19,18 @@ app.controller('UserAds', ['$scope', '$route', 'adsData', 'filter', function($sc
         })
     };
 
+    $scope.publish = function(adId) {
+        adsData.publish(adId).$promise.then(function (data) {
+            $route.reload();
+        })
+    };
+
+    $scope.deleteAd = function(adId) {
+        adsData.deleteAd(adId).$promise.then(function (data) {
+            $route.reload();
+        })
+    };
+
     $scope.setPage = function (pageNo) {
         $scope.currentPage = pageNo;
     };
